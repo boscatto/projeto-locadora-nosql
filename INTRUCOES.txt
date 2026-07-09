@@ -1,0 +1,43 @@
+1. PRÉ-REQUISITOS
+
+Ter o MongoDB e o MongoDB Compass instalados e rodando localmente na porta padrão (mongodb://localhost:27017).
+
+Ter o Java JDK (versão 8 ou superior) instalado.
+
+A aplicação utiliza o driver oficial do MongoDB para Java. Os 3 arquivos .jar necessários (mongodb-driver-sync, mongodb-driver-core e bson) 
+devem estar configurados no Build Path / Referenced Libraries da IDE utilizada para a avaliação.
+
+2. PREPARANDO O BANCO DE DADOS (NoSQL)
+
+Abra o MongoDB Compass e conecte-se ao seu localhost.
+
+Abra o terminal integrado do Compass clicando no ícone >_ MONGOSH (na barra inferior ou ao lado da conexão).
+
+Abra o arquivo script_inicial_mongodb.js fornecido neste repositório.
+
+Copie todo o conteúdo do script, cole no terminal do Mongosh e pressione ENTER.
+
+Atualize a interface do Compass (Ctrl+R). O banco projeto_locadora_db e as coleções clientes e filmes estarão criados e populados com os dados iniciais.
+(Nota: A coleção locacoes é gerada dinamicamente pelo sistema no momento do primeiro aluguel).
+
+3. COMPILANDO E EXECUTANDO A APLICAÇÃO JAVA
+
+Abra a pasta do projeto na sua IDE de preferência (Eclipse, VS Code, IntelliJ, etc).
+
+Certifique-se de que a biblioteca do MongoDB (os arquivos .jar) está devidamente referenciada no projeto.
+
+Navegue até a classe principal do sistema: src/Principal.java.
+
+Compile e execute a classe Principal.java.
+
+O menu da aplicação aparecerá no console da IDE. Todo o fluxo de navegação é feito via texto.
+
+SUGESTÃO DE TESTE DE FLUXO:
+
+Use a opção 10 para ver o catálogo e copiar o ID de uma Cópia disponível.
+
+Use a opção 2 para ver os clientes e copiar o ID de um Cliente.
+
+Use a opção 8 para alugar o filme usando os IDs copiados (isso criará a coleção de locações no banco).
+
+Use a opção 11 colando o ID do cliente para ver o histórico e o relatório funcionando.

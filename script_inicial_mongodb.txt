@@ -1,0 +1,86 @@
+use('projeto_locadora_db');
+
+db.clientes.drop();
+db.filmes.drop();
+db.locacoes.drop();
+
+db.clientes.insertMany([
+  { id_cliente: 1, nome: 'João Silva', cpf: '12345678901', telefone: '11988887777' },
+  { id_cliente: 2, nome: 'Maria Oliveira', cpf: '98765432100', telefone: '11977776666' },
+  { id_cliente: 3, nome: 'Carlos Eduardo', cpf: '11122233344', telefone: '11966665555' },
+  { id_cliente: 4, nome: 'Ana Beatriz', cpf: '55566677788', telefone: '11955554444' },
+  { id_cliente: 5, nome: 'Lucas Santos', cpf: '99988877766', telefone: '11944443333' }
+]);
+
+db.filmes.insertMany([
+  {
+    titulo: 'Inception', ano_lancamento: 2010, diretor: 'Christopher Nolan', genero: 'Sci-Fi',
+    copias: [
+      { id_copia: 'INC-01-BLU', tipo_midia: 'Blu-ray', disponivel: true },
+      { id_copia: 'INC-02-DVD', tipo_midia: 'DVD', disponivel: false }
+    ]
+  },
+  {
+    titulo: 'Interstellar', ano_lancamento: 2014, diretor: 'Christopher Nolan', genero: 'Sci-Fi',
+    copias: [
+      { id_copia: 'INT-01-DVD', tipo_midia: 'DVD', disponivel: false }
+    ]
+  },
+  {
+    titulo: 'Barbie', ano_lancamento: 2023, diretor: 'Greta Gerwig', genero: 'Comédia',
+    copias: [
+      { id_copia: 'BAR-01-BLU', tipo_midia: 'Blu-ray', disponivel: true },
+      { id_copia: 'BAR-02-BLU', tipo_midia: 'Blu-ray', disponivel: true }
+    ]
+  },
+  {
+    titulo: 'O Poderoso Chefão', ano_lancamento: 1972, diretor: 'Francis Ford Coppola', genero: 'Crime',
+    copias: [
+      { id_copia: 'POD-01-DVD', tipo_midia: 'DVD', disponivel: true }
+    ]
+  },
+  {
+    titulo: 'Vingadores: Ultimato', ano_lancamento: 2019, diretor: 'Anthony Russo', genero: 'Ação',
+    copias: [
+      { id_copia: 'VIN-01-BLU', tipo_midia: 'Blu-ray', disponivel: false }
+    ]
+  }
+]);
+
+db.locacoes.insertMany([
+  {
+    id_cliente: 1,
+    data_locacao: new Date('2026-05-10T10:00:00Z'),
+    data_prevista: new Date('2026-05-15T10:00:00Z'),
+    data_devolvida: new Date('2026-05-14T10:00:00Z'),
+    valor_total: 40.00,
+    status: 'Fechada',
+    id_copia_alugada: 'POD-01-DVD'
+  },
+  {
+    id_cliente: 1,
+    data_locacao: new Date('2026-06-20T10:00:00Z'),
+    data_prevista: new Date('2026-06-25T10:00:00Z'),
+    valor_total: 50.00,
+    status: 'Aberta',
+    id_copia_alugada: 'INC-02-DVD'
+  },
+  {
+    id_cliente: 3,
+    data_locacao: new Date('2026-07-01T10:00:00Z'),
+    data_prevista: new Date('2026-07-05T10:00:00Z'),
+    valor_total: 35.00,
+    status: 'Aberta',
+    id_copia_alugada: 'INT-01-DVD'
+  },
+  {
+    id_cliente: 4,
+    data_locacao: new Date('2026-07-07T10:00:00Z'),
+    data_prevista: new Date('2026-07-12T10:00:00Z'),
+    valor_total: 60.00,
+    status: 'Aberta',
+    id_copia_alugada: 'VIN-01-BLU'
+  }
+]);
+
+console.log("Banco populado com sucesso!");
